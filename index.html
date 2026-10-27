@@ -1494,7 +1494,7 @@
             <div class="p-4 rounded-xl bg-[#0B1120]/80 border border-[#48B9E8]/20 space-y-1.5">
               <p class="font-mono text-xs text-[#36C6C9] font-bold">2. Gambar Proyek</p>
               <code class="block font-mono text-[11px] text-white">public/images/projects/</code>
-              <p class="text-xs text-[#AAB5C8]">Tambahkan dokumentasi karya asli pada properti <code class="text-white">gallery</code> di setiap item <code class="text-white">portfolioConfig.projects</code>.</p>
+              <p class="text-xs text-[#AAB5C8]">Karya asli ditautkan lewat properti <code class="text-white">galleryLinks</code> di setiap item <code class="text-white">portfolioConfig.projects</code> (tombol Buka Konten Asli di galeri).</p>
             </div>
             <div class="p-4 rounded-xl bg-[#0B1120]/80 border border-[#48B9E8]/20 space-y-1.5">
               <p class="font-mono text-xs text-[#8B7CFF] font-bold">3. File Video</p>
@@ -1628,6 +1628,10 @@
           <div id="modal-gallery-thumbs" class="grid grid-cols-3 gap-3">
             <!-- Populated dynamically -->
           </div>
+          <!-- Original Content Link (populated dynamically) -->
+          <a id="modal-original-link" href="#" target="_blank" rel="noopener" class="hidden items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#4169FF] to-[#48B9E8] text-white font-mono font-bold text-xs shadow-glow-electric">
+            <span>Buka Konten Asli &#8599;</span>
+          </a>
         </div>
 
         <!-- Video Player Viewport -->
@@ -1817,7 +1821,8 @@
         "Videography",
         "Social Media",
         "Event Documentation",
-        "Branding"
+        "Branding",
+        "Live Streaming"
       ],
       projects: [
         {
@@ -1837,10 +1842,11 @@
           ],
           assetPath: "public/images/projects/ppsq-social-media/",
           gallery: [
-            createProjectBlueprintSvg("Social Media Content", "PPSQ Official — Daily Content & Reels (10M+ Views)", "Social Media", "#4169FF", "#48B9E8", "~/projects/ppsq-social-media/cover.svg"),
-            createProjectBlueprintSvg("Content Calendar & Reels", "Perencanaan Jadwal Posting Harian IG, FB & YouTube", "Social Media", "#36C6C9", "#4169FF", "~/projects/ppsq-social-media/calendar.svg"),
-            createProjectBlueprintSvg("Audience Engagement", "Interaksi Positif & Pertumbuhan 10 Juta Viewers", "Social Media", "#8B7CFF", "#48B9E8", "~/projects/ppsq-social-media/metrics.svg")
-          ]
+            createProjectBlueprintSvg("Reels 5 Surah Harian", "1,3 Jt Likes \u2022 PPSQ Official \u2022 Des 2024", "Social Media", "#4169FF", "#48B9E8", "~/projects/ppsq-social-media/cover.svg"),
+            createProjectBlueprintSvg("Reels Silat & Maghrib", "110 Rb Likes \u2022 PPSQ Official \u2022 Sep 2025", "Social Media", "#36C6C9", "#4169FF", "~/projects/ppsq-social-media/calendar.svg"),
+            createProjectBlueprintSvg("Profil @ppsq.official", "12,7 Rb Followers \u2022 Akun Bisnis", "Social Media", "#8B7CFF", "#48B9E8", "~/projects/ppsq-social-media/metrics.svg"),
+          ],
+          galleryLinks: ["https://www.instagram.com/reel/DDotjWQO32T/", "https://www.instagram.com/reel/DO3XwERkczj/", "https://www.instagram.com/ppsq.official/"],
         },
         {
           id: "bdi-pertamina-event",
@@ -1859,10 +1865,11 @@
           ],
           assetPath: "public/images/projects/bdi-pertamina-event/",
           gallery: [
-            createProjectBlueprintSvg("Event Documentation", "BDI Pertamina RU IV Cilacap — Live Streaming & Media", "Event Documentation", "#36C6C9", "#4169FF", "~/projects/bdi-pertamina/live-stream.svg"),
-            createProjectBlueprintSvg("Regional Broadcast Setup", "Manajemen Tim Produksi Live Streaming Multi-Kamera", "Event Documentation", "#48B9E8", "#36C6C9", "~/projects/bdi-pertamina/broadcast.svg"),
-            createProjectBlueprintSvg("Visual Publication System", "Koordinasi Tim Desain & Fotografer Acara", "Event Documentation", "#4169FF", "#8B7CFF", "~/projects/bdi-pertamina/documentation.svg")
-          ]
+            createProjectBlueprintSvg("Channel BDI Pertamina", "Kanal YouTube BDI Pertamina Cilacap", "Event Documentation", "#36C6C9", "#4169FF", "~/projects/bdi-pertamina/live-stream.svg"),
+            createProjectBlueprintSvg("Manasik Haji 2026", "KBIHU Miftahul Jannah \u2022 24 Menit", "Event Documentation", "#48B9E8", "#36C6C9", "~/projects/bdi-pertamina/broadcast.svg"),
+            createProjectBlueprintSvg("Tabligh Akbar", "Doa Bersama \u2022 3 Jam 11 Menit", "Event Documentation", "#4169FF", "#8B7CFF", "~/projects/bdi-pertamina/documentation.svg"),
+          ],
+          galleryLinks: ["https://www.youtube.com/@BDIPertaminaCilacap", "https://www.youtube.com/watch?v=XS7ikW3785w", "https://www.youtube.com/watch?v=mTRSLpH28e0"],
         },
         {
           id: "creative-design-collection",
@@ -1881,10 +1888,11 @@
           ],
           assetPath: "public/images/projects/graphic-design-collection/",
           gallery: [
-            createProjectBlueprintSvg("Graphic Design Collection", "Visual Publication, Poster & Social Media Layout", "Graphic Design", "#48B9E8", "#8B7CFF", "~/projects/graphic-design/collection-01.svg"),
-            createProjectBlueprintSvg("Event Poster Series", "Tipografi & Hierarki Visual untuk Publikasi Acara", "Graphic Design", "#4169FF", "#48B9E8", "~/projects/graphic-design/collection-02.svg"),
-            createProjectBlueprintSvg("Social Carousel System", "Desain Konten Edukasi & Informasi Komunitas", "Graphic Design", "#8B7CFF", "#36C6C9", "~/projects/graphic-design/collection-03.svg")
-          ]
+            createProjectBlueprintSvg("Poster Publikasi", "Desain Poster Acara @ppsq.official", "Graphic Design", "#48B9E8", "#8B7CFF", "~/projects/graphic-design/collection-01.svg"),
+            createProjectBlueprintSvg("Layout Media Sosial", "Feed & Story @ppsq.official", "Graphic Design", "#4169FF", "#48B9E8", "~/projects/graphic-design/collection-02.svg"),
+            createProjectBlueprintSvg("Kampanye Visual", "Konten Edukasi & Komunitas", "Graphic Design", "#8B7CFF", "#36C6C9", "~/projects/graphic-design/collection-03.svg"),
+          ],
+          galleryLinks: ["https://www.instagram.com/ppsq.official/", "https://www.instagram.com/ppsq.official/", "https://www.instagram.com/ppsq.official/"],
         },
         {
           id: "video-production-collection",
@@ -1903,10 +1911,11 @@
           ],
           assetPath: "public/videos/video-production-collection/",
           gallery: [
-            createProjectBlueprintSvg("Video Production Collection", "Storytelling, Event Aftermovie & Short-Form Reels", "Videography", "#8B7CFF", "#4169FF", "~/projects/videography/reel-01.svg"),
-            createProjectBlueprintSvg("Short-Form Vertical Reels", "Produksi Konten Video Harian Berdaya Jangkau Tinggi", "Videography", "#4169FF", "#36C6C9", "~/projects/videography/reel-02.svg"),
+            createProjectBlueprintSvg("Berseri PP Syafa'atul Qur'an", "Kompetisi Pesantren Berseri \u2022 Cilacap", "Videography", "#8B7CFF", "#4169FF", "~/projects/videography/reel-01.svg"),
+            createProjectBlueprintSvg("Reels Vertikal", "Short-Form @ppsq.official", "Videography", "#4169FF", "#36C6C9", "~/projects/videography/reel-02.svg"),
             createProjectBlueprintSvg("Post-Production & Editing", "Penyusunan Narasi Visual & Ritme Penyuntingan", "Videography", "#36C6C9", "#48B9E8", "~/projects/videography/reel-03.svg")
-          ]
+          ],
+          galleryLinks: ["https://youtu.be/CPOTg30uYcY", "https://www.instagram.com/ppsq.official/", null],
         },
         {
           id: "selected-photography-campaigns",
@@ -1925,32 +1934,34 @@
           ],
           assetPath: "public/images/projects/selected-campaigns/",
           gallery: [
-            createProjectBlueprintSvg("Selected Photo Campaigns", "Human Interest, Event Moments & Visual Feed", "Photography", "#36C6C9", "#48B9E8", "~/projects/photography/campaign-01.svg"),
+            createProjectBlueprintSvg("Kampanye @ppsq.official", "Human Interest, Event Moments & Visual Feed", "Photography", "#36C6C9", "#48B9E8", "~/projects/photography/campaign-01.svg"),
             createProjectBlueprintSvg("Portrait & Activity Series", "Dokumentasi Visual Autentik untuk Media Sosial", "Photography", "#48B9E8", "#4169FF", "~/projects/photography/campaign-02.svg"),
             createProjectBlueprintSvg("Thematic Campaign Curation", "Kurasi Storytelling Fotografi @Lensaliterasi", "Photography", "#8B7CFF", "#48B9E8", "~/projects/photography/campaign-03.svg")
-          ]
+          ],
+          galleryLinks: ["https://www.instagram.com/ppsq.official/", "https://www.instagram.com/ppsq.official/", "https://www.instagram.com/ppsq.official/"],
         },
         {
           id: "sobat-desain-branding",
           title: "SOBAT DESAIN — Creative Design Services",
-          category: "Branding",
-          tags: ["Branding", "Graphic Design"],
+          category: "Live Streaming",
+          tags: ["Live Streaming", "Videography", "Branding"],
           year: "2023–2026",
           role: "Creative Digital Creator",
-          shortDescription: "Inisiatif brand pendukung SOBAT DESAIN untuk pengembangan identitas visual, sistem materi promosi, dan solusi desain kreatif.",
-          fullDescription: "SOBAT DESAIN merupakan brand pendukung yang diinisiasi untuk membantu kebutuhan desain grafis, identitas visual, dan materi komunikasi digital agar brand maupun organisasi memiliki tampilan yang konsisten, rapi, dan berkarakter.",
+          shortDescription: "SOBAT DESAIN adalah tim produksi live streaming yang menangani seluruh proses siaran secara profesional, mulai dari multi-kamera, audio, dan grafis hingga eksekusi langsung, dengan karya unggulan Wisuda Sarjana (S1) ke-11 UNUGHA Cilacap serta layanan pendukung desain visual dan promosi.",
+          fullDescription: "SOBAT DESAIN berfokus pada layanan produksi live streaming end-to-end, mulai dari penyiapan sistem multi-kamera, audio, dan grafis siaran hingga eksekusi siaran langsung yang stabil, profesional, dan tertata, dengan portofolio karya Rapat Senat Terbuka Wisuda Sarjana (S1) ke-11 UNUGHA Cilacap pada 19 September 2026, serta tetap menghadirkan layanan pendukung berupa pembuatan identitas visual dan materi promosi.",
           deliverables: [
-            "Perancangan identitas visual dan elemen pendukung brand",
-            "Sistem desain materi promosi cetak maupun digital",
-            "Kit visual media sosial yang siap digunakan",
-            "Pendampingan konsep visual untuk kampanye kreatif"
+            "Produksi live streaming end-to-end multi-kamera",
+            "Penyiapan audio dan grafis siaran",
+            "Eksekusi siaran langsung yang stabil dan tertata",
+            "Identitas visual dan materi promosi sebagai layanan pendukung"
           ],
           assetPath: "public/images/projects/sobat-desain/",
           gallery: [
-            createProjectBlueprintSvg("SOBAT DESAIN", "Creative Design Services & Visual Identity System", "Branding", "#4169FF", "#8B7CFF", "~/projects/sobat-desain/identity-01.svg"),
-            createProjectBlueprintSvg("Brand Visual Guidelines", "Konsistensi Palet, Tipografi & Materi Promosi", "Branding", "#48B9E8", "#4169FF", "~/projects/sobat-desain/identity-02.svg"),
-            createProjectBlueprintSvg("Promotional Asset Kit", "Solusi Desain Terpadu untuk Brand & Komunitas", "Branding", "#36C6C9", "#8B7CFF", "~/projects/sobat-desain/identity-03.svg")
-          ]
+            createProjectBlueprintSvg("Live Streaming Wisuda", "UNUGHA Cilacap \u2022 19 Sep 2026", "Live Streaming", "#4169FF", "#8B7CFF", "~/projects/sobat-desain/identity-01.svg"),
+            createProjectBlueprintSvg("Multi-Kamera & Audio", "Penyiapan Sistem Siaran", "Live Streaming", "#48B9E8", "#4169FF", "~/projects/sobat-desain/identity-02.svg"),
+            createProjectBlueprintSvg("Grafis Siaran", "Eksekusi Stabil & Tertata", "Live Streaming", "#36C6C9", "#8B7CFF", "~/projects/sobat-desain/identity-03.svg"),
+          ],
+          galleryLinks: ["https://youtu.be/fDJgG81Zd-U", null, null],
         }
       ],
       services: [
@@ -2357,6 +2368,21 @@
             updateProjectModalView();
           });
         });
+      }
+
+      const origLink = document.getElementById("modal-original-link");
+      if (origLink) {
+        const slideLinks = project.galleryLinks || [];
+        const slideHref = slideLinks[currentModalSlideIndex];
+        if (slideHref) {
+          origLink.href = slideHref;
+          origLink.classList.remove("hidden");
+          origLink.classList.add("flex");
+        } else {
+          origLink.removeAttribute("href");
+          origLink.classList.add("hidden");
+          origLink.classList.remove("flex");
+        }
       }
 
       if (titleEl) titleEl.textContent = project.title;
